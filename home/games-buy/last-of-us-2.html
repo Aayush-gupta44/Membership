@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Last of Us Part II - Game Details</title>
+  <link rel="stylesheet" href="last-of-us-2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">The Last of Us Part II</h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/tlou1.jpg" alt="TLOU Screenshot 1" class="slide">
+        <img src="/Images/tlou2.jpg" alt="TLOU Screenshot 2" class="slide">
+        <img src="/Images/tlou3.jpg" alt="TLOU Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>The Last of Us Part II is a gripping, emotional, and brutal narrative-driven action-adventure game set in a post-apocalyptic world. Follow Ellie’s journey of vengeance, survival, and consequences in a beautifully realized world.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel Core i7-8700 / AMD Ryzen 5 3600X</li>
+        <li><strong>RAM:</strong> 16 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA RTX 2060 / AMD RX 6600XT</li>
+        <li><strong>Storage:</strong> 100 GB SSD required</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 6,299</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GTA V - Game Details</title>
+  <link rel="stylesheet" href="gtav.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">GTA V ONLINE </h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/gtav.jpg" alt="GTA V Screenshot 1" class="slide">
+        <img src="/Images/cyberpunk.jpg" alt="GTA V Screenshot 2" class="slide">
+        <img src="/Images/cod.jpg" alt="GTA V Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>Experience the award-winning Grand Theft Auto V. Explore the open-world chaos of Los Santos and Blaine County with stunning visuals, exciting missions, and intense multiplayer.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel Core i5-3470 / AMD FX-8350</li>
+        <li><strong>RAM:</strong> 8 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA GTX 660 2GB / AMD HD7870 2GB</li>
+        <li><strong>Storage:</strong> 72 GB available space</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 1,999</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach((slide, index) => {
+        slide.style.display = "none";
+      });
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 3 seconds
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

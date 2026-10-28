@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity Courses|My Cyber Shield</title>
+    <link rel="icon" type="image/PNG" href="../Icon of page.png"> 
+    <link rel="stylesheet" href="cyber courses.css">
+</head>
+<body>
+
+<!-- 
+    This page displays a grid of interactive cybersecurity courses for users. 
+    Each course includes a thumbnail, description, level, instructor bio, and an "Enroll" button 
+    that redirects to a subscription page. Users can also search for courses or take a quiz. 
+-->
+
+    <div class="top-bar">
+        <a href="../hacking courses/hacking courses.html"><button class="quiz" onclick="history.back()">
+            BUY PC GAMES</button></a>
+        <input type="text" class="search-bar" onkeyup="searchCourses()" placeholder="Search courses...">
+        <a href="../index.html"><button class="go-back" onclick="history.back()">Go Back</button></a>
+    </div>
+
+   <div class="container">
+    <h1 class="heading">PAID APP CENTER</h1>
+    <div class="course-grid">
+        <!-- App 1 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/netflix.jpg" alt="Netflix">
+            </div>
+            <h2>Netflix</h2>
+            <p class="description">Subscribe to enjoy unlimited movies, TV shows, and documentaries.</p>
+            <p class="details">Developer: Netflix Inc. | Category: Streaming | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Netflix is the world's leading entertainment service with a massive library of exclusive series, films, and originals.</p>
+                <p>Subscription Info: Purchase monthly, quarterly, or annual plans to unlock ad-free streaming in HD or 4K.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 2 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/primevideo.jpg" alt="Amazon Prime Video">
+            </div>
+            <h2>Amazon Prime Video</h2>
+            <p class="description">Get access to thousands of movies, series, and Amazon Originals.</p>
+            <p class="details">Developer: Amazon | Category: Streaming | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Prime Video offers exclusive shows, latest movies, and regional content with premium streaming quality.</p>
+                <p>Subscription Info: Subscribe monthly or annually to enjoy unlimited HD content and Prime member benefits.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 3 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/canva.jpg" alt="Canva Pro">
+            </div>
+            <h2>Canva Pro</h2>
+            <p class="description">Unlock premium design templates, assets, and features.</p>
+            <p class="details">Developer: Canva Pty Ltd | Category: Design | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Canva Pro helps you create stunning designs with access to premium stock photos, fonts, and brand tools.</p>
+                <p>Subscription Info: Subscribe monthly or yearly to unlock premium features and team collaboration tools.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 4 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/adobe.jpg" alt="Adobe Creative Cloud">
+            </div>
+            <h2>Adobe Creative Cloud</h2>
+            <p class="description">Access Photoshop, Illustrator, Premiere Pro, and more in one bundle.</p>
+            <p class="details">Developer: Adobe Inc. | Category: Creative Tools | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Adobe CC offers industry-standard apps for design, video editing, and digital art all under one subscription.</p>
+                <p>Subscription Info: Choose a monthly or annual plan for individuals, students, or businesses.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 5 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/spotify.jpg" alt="Spotify Premium">
+            </div>
+            <h2>Spotify Premium</h2>
+            <p class="description">Stream music ad-free and download songs for offline listening.</p>
+            <p class="details">Developer: Spotify AB | Category: Music | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Spotify Premium gives you unlimited skips, high-quality audio, and offline playback for your favorite songs.</p>
+                <p>Subscription Info: Subscribe monthly as an individual, duo, or family plan to unlock all premium benefits.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 6 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/youtubepremium.jpg" alt="YouTube Premium">
+            </div>
+            <h2>YouTube Premium</h2>
+            <p class="description">Enjoy ad-free videos, background play, and YouTube Music.</p>
+            <p class="details">Developer: Google LLC | Category: Streaming | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>YouTube Premium enhances your experience with uninterrupted video streaming, downloads, and YouTube Music access.</p>
+                <p>Subscription Info: Available in individual and family plans with monthly billing options.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 7 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/capcutpro.jpg" alt="Capcut pro">
+            </div>
+            <h2>CapCut Pro</h2>
+            <p class="description">Learn languages without ads and with enhanced features.</p>
+            <p class="details">Developer: Duolingo Inc. | Category: Education | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Duolingo Plus makes learning easier with unlimited hearts, offline access, and an ad-free interface.</p>
+                <p>Subscription Info: Choose monthly or yearly plans to speed up your language learning journey.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 8 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/canvaproadminpanal.jpg" alt="canva pro admin panel">
+            </div>
+            <h2>Canva Pro Admin Panel</h2>
+            <p class="description">Access Word, Excel, PowerPoint, and 1TB of OneDrive storage.</p>
+            <p class="details">Developer: Microsoft | Category: Productivity | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Microsoft 365 is a complete office suite for students, professionals, and teams with premium features and collaboration tools.</p>
+                <p>Subscription Info: Choose personal, family, or business plans with monthly or annual billing.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+
+        <!-- App 9 -->
+        <div class="course" onclick="toggleCourseDetails(this)">
+            <div class="thumbnail">
+                <img src="/Images/chatgptpro.jpg" alt="chatgpt premium">
+            </div>
+            <h2>Chatgpt Premium</h2>
+            <p class="description">Unlock extended meetings, cloud recordings, and admin tools.</p>
+            <p class="details">Developer: Zoom Video Communications | Category: Communication | Platform: Cross-Platform</p>
+            <div class="extra-details">
+                <p>Zoom Pro is ideal for professional meetings, webinars, and classrooms. Get advanced admin controls and cloud storage.</p>
+                <p>Subscription Info: Monthly and annual options available for individuals and teams.</p>
+            </div>
+            <a href="../Subscription/subscription.html" class="enroll">Subscribe</a>
+        </div>
+    </div>
+</div>
+
+
+    <div id="common-footer"></div>
+
+<script src="cyber course.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Fire Diamond Top-Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e1e2f, #2c3e50);
+      color: #fff;
+      padding: 20px;
+    }
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .top-header img.logo {
+      width: 50px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 180px;
+      background: #444 url('freefire.jpg') center/cover no-repeat;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      background: #2e2e3e;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .user-info input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .diamond-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .diamond-card {
+      background: #1c1c2b;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .diamond-card:hover,
+    .diamond-card.active {
+      border-color: #00c6ff;
+      background: #2d2d4f;
+    }
+
+    .diamond-card img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+
+    .diamond-card span {
+      display: block;
+      font-size: 14px;
+    }
+
+    .buy-area {
+      margin-top: 20px;
+      background: #2c2c3c;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .buy-area label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      justify-content: center;
+    }
+
+    .buy-area button {
+      margin-top: 15px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #00c6ff;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      cursor: pointer;
+    }
+
+    .buy-area button:disabled {
+      background: #777;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+      .diamond-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-header">
+    <h2>Free Fire Top-Up</h2>
+    <img src="freefire.jpg" alt="Logo" class="logo" />
+  </div>
+
+  <div class="banner"></div>
+
+  <div class="user-info">
+    <input type="text" id="uid" placeholder="Enter your Free Fire UID" />
+    <input type="email" id="email" placeholder="Enter your Gmail" />
+  </div>
+
+  <div class="diamond-grid" id="diamondGrid"></div>
+
+  <div class="buy-area">
+    <label>
+      <input type="checkbox" id="terms" /> I agree to the Terms & Conditions
+    </label>
+    <button id="buyBtn" disabled>Buy Now</button>
+  </div>
+
+  <script>
+    const topups = [
+      { amount: '100', bonus: '0' },
+      { amount: '200', bonus: '20' },
+      { amount: '300', bonus: '30' },
+      { amount: '500', bonus: '80' },
+      { amount: '700', bonus: '120' },
+      { amount: '1000', bonus: '200' },
+    ];
+
+    const grid = document.getElementById('diamondGrid');
+    const buyBtn = document.getElementById('buyBtn');
+    const uidInput = document.getElementById('uid');
+    const emailInput = document.getElementById('email');
+    const termsCheck = document.getElementById('terms');
+
+    let selectedTopup = null;
+
+    topups.forEach((topup, index) => {
+      const card = document.createElement('div');
+      card.className = 'diamond-card';
+      card.innerHTML = `
+        <img src="##" alt="Diamond" />
+        <h3>${parseInt(topup.amount) + parseInt(topup.bonus)}💎</h3>
+        <span>(${topup.amount} + ${topup.bonus} Bonus)</span>
+      `;
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.diamond-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        selectedTopup = topup;
+        validateForm();
+      });
+      grid.appendChild(card);
+    });
+
+    [uidInput, emailInput, termsCheck].forEach(el => {
+      el.addEventListener('input', validateForm);
+      el.addEventListener('change', validateForm);
+    });
+
+    function validateForm() {
+      if (
+        uidInput.value.trim() !== '' &&
+        emailInput.value.trim() !== '' &&
+        termsCheck.checked &&
+        selectedTopup
+      ) {
+        buyBtn.disabled = false;
+      } else {
+        buyBtn.disabled = true;
+      }
+    }
+
+    buyBtn.addEventListener('click', () => {
+      alert(`UID: ${uidInput.value}\nEmail: ${emailInput.value}\nSelected: ${parseInt(selectedTopup.amount) + parseInt(selectedTopup.bonus)}💎`);
+      // Later: send this data to your database
+    });
+  </script>
+</body>
+</html>

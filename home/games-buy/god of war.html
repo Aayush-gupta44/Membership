@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>God of War - Game Details</title>
+  <link rel="stylesheet" href="god of war.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">God of War</h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/gow1.jpg" alt="God of War Screenshot 1" class="slide">
+        <img src="/Images/gow2.jpg" alt="God of War Screenshot 2" class="slide">
+        <img src="/Images/gow3.jpg" alt="God of War Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>God of War takes you on an epic journey through Norse mythology with Kratos and Atreus. Experience brutal combat, breathtaking visuals, and a powerful story of father and son.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel i5-2500k / AMD Ryzen 3 1200</li>
+        <li><strong>RAM:</strong> 8 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA GTX 960 (4 GB) / AMD R9 290X (4 GB)</li>
+        <li><strong>Storage:</strong> 70 GB available space</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 4,199</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

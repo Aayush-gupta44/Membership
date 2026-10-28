@@ -1,0 +1,91 @@
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+   html, body {
+    height: 100%; /* Ensures body takes up the full height of the page */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stacks content vertically */
+} 
+
+/* ================================================
+   FOOTER STYLES
+   ================================================ */
+.common-footer {
+    background: linear-gradient(to right, #480232, #810833); /* Gradient from dark to light purple */
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap when necessary */
+    justify-content: space-around; /* Distributes footer sections evenly */
+    text-align: left; /* Aligns text to the left in each section */
+    width: 100%;
+    margin-top: auto; /* Pushes the footer to the bottom of the page */
+}
+
+/* Footer section styles */
+.footer-section {
+    margin: 10px;
+    min-width: 150px; /* Ensures sections do not shrink too small */
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px; /* Adds space below section titles */
+}
+
+/* List styles inside footer sections */
+.footer-section ul {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes padding for a cleaner look */
+}
+
+.footer-section ul li {
+    margin: 5px 0; /* Adds space between list items */
+}
+
+/* Link styling inside footer sections */
+.footer-section ul li a {
+    color: white;
+    text-decoration: none; /* Removes underline from links */
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+    color: #62e2cd; /* Light cyan color for hovered links */
+}
+
+/* Contact section styling */
+.footer-contact {
+    display: flex;
+    flex-direction: column; /* Stacks contact items vertically */
+}
+
+.footer-contact a, .footer-contact span {
+    color: white;
+    text-decoration: none; /* Removes underline from contact links */
+    margin: 5px 0; /* Adds space between items */
+}
+
+.footer-contact a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+/* Footer logo styling */
+.footer-logo img {
+    width: 150px; /* Sets the width of the footer logo */
+}
+
+/* ================================================
+   RESPONSIVE FOOTER DESIGN (for screens <= 768px)
+   ================================================ */
+@media (max-width: 768px) {
+    .common-footer {
+        flex-direction: column; /* Stacks footer sections vertically */
+        text-align: center; /* Centers text in smaller screens */
+    }
+
+    .footer-section {
+        margin: 15px 0; /* Adds vertical margin for spacing */
+    }
+}

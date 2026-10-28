@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Assassin’s Creed Mirage - Game Details</title>
+  <link rel="stylesheet" href="ac-mirage.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">Assassin’s Creed Mirage</h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/ac1.jpg" alt="Mirage Screenshot 1" class="slide">
+        <img src="/Images/ac2.jpg" alt="Mirage Screenshot 2" class="slide">
+        <img src="/Images/ac3.jpg" alt="Mirage Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>Assassin’s Creed Mirage returns to the series’ roots with a focus on stealth, parkour, and assassination. Step into the role of Basim in 9th-century Baghdad in a richly detailed and story-driven adventure.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel Core i7-8700K / AMD Ryzen 5 3600</li>
+        <li><strong>RAM:</strong> 16 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA GTX 1660 Ti / AMD RX 5600 XT</li>
+        <li><strong>Storage:</strong> 45 GB SSD required</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 5,199</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

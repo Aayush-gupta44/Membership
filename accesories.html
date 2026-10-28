@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming Accessories Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #e0dbdb; }
+    .product-image { height: 180px; object-fit: cover; }
+    .card {
+      position: relative;
+      border: 1px solid #dddddd10;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(78,115,223,0.4), 0 0 8px rgba(78,115,223,0.2);
+    }
+    .sale-badge {
+      position: absolute;
+      bottom: 10px; left: 10px;
+      background: #dc3545; color: #fff;
+      font-size: 0.75rem; padding: 2px 6px;
+      text-transform: uppercase; border-radius: 3px;
+    }
+    .price-old {
+      text-decoration: line-through; color: #999;
+      margin-right: 6px;
+    }
+    .price-new {
+      color: #1a7b1a; font-weight: bold;
+    }
+    .btn-cart {
+      background: #7a4edf; color: #fff;
+      transition: box-shadow 0.3s ease, background 0.2s ease;
+    }
+    .btn-cart:hover {
+      background: #84284c; color: #fff;
+      box-shadow: 0 0 10px rgba(78,115,223,0.6);
+    }
+    @media (max-width: 576px) {
+      #productContainer .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4 py-2">
+  <a class="navbar-brand" href="#"><img src="https://img.icons8.com/ios-filled/50/000000/controller.png" style="width:40px"/></a>
+  <form class="mx-auto w-50 custom-search d-flex shadow-sm">
+    <input id="searchInput" type="search" placeholder="Gaming accessories..." class="form-control border-0"/>
+    <button type="button" class="btn"><i class="fas fa-search"></i></button>
+  </form>
+  <div class="ms-auto d-flex gap-3">
+    <a href="cart.html" class="btn btn-outline-dark"><i class="fas fa-truck"></i> Track My Order</a>
+    <a href="cart.html" class="btn btn-outline-dark position-relative">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+    </a>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Gaming Accessories</h4>
+    <select id="sortSelect" class="form-select w-auto">
+      <option value="best">Best Match</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+    </select>
+  </div>
+  <div id="productContainer" class="row g-4"></div>
+</div>
+
+<script>
+const products = [
+  { id:1,name:'Big Mouse Mat',price:299,old:599,image:'gtav.jpg',sale:true },
+  { id:2,name:'Plain Mouse Pad',price:69,old:null,image:'https://i.imgur.com/FPsIo4X.jpg',sale:false },
+  { id:3,name:'Razer Mouse Pad',price:150,old:199,image:'https://i.imgur.com/hjOgiJL.jpg',sale:true },
+  { id:4,name:'RGB Gaming Keyboard',price:1550,old:1899,image:'https://i.imgur.com/bcdliVm.jpg',sale:true },
+  { id:5,name:'Gaming Earphones',price:650,old:null,image:'https://i.imgur.com/3yTyH7k.jpg',sale:false },
+  { id:6,name:'Cooling Fan',price:899,old:1199,image:'https://i.imgur.com/zvFWgnt.jpg',sale:true },
+  { id:7,name:'RGB Mouse',price:450,old:549,image:'https://i.imgur.com/ZeM4hh5.jpg',sale:true },
+];
+
+function displayProducts(items) {
+  const container = document.getElementById('productContainer');
+  container.innerHTML = '';
+  items.forEach(p => {
+    const col = document.createElement('div');
+    col.className = 'col-sm-6 col-md-4 col-lg-3';
+    col.innerHTML = `
+      <div class="card h-100" onclick="window.location='product.html?id=${p.id}'">
+        <div class="position-relative">
+          <img src="${p.image}" class="card-img-top product-image" alt="${p.name}">
+          ${p.sale ? `<div class="sale-badge">Sale</div>` : ''}
+        </div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${p.name}</h5>
+          <div class="mb-2">
+            ${p.old ? `<span class="price-old">Rs. ${p.old}</span>` : ''}
+            <span class="price-new">Rs. ${p.price}</span>
+          </div>
+          <button class="btn btn-cart mt-auto" onclick="addToCart(event,${p.id})">
+            <i class="fas fa-cart-plus me-2"></i>Add to Cart
+          </button>
+        </div>
+      </div>`;
+    container.appendChild(col);
+  });
+}
+
+function addToCart(e,id){
+  e.stopPropagation(); e.preventDefault();
+  let cart = JSON.parse(localStorage.getItem('cart'))||[];
+  const prod = products.find(x=>x.id===id);
+  const found = cart.find(x=>x.id===id);
+  if(found) found.qty++;
+  else cart.push({...prod, qty:1});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  const cart = JSON.parse(localStorage.getItem('cart'))||[];
+  document.getElementById('cartCount').textContent = cart.reduce((a,i)=>a+i.qty,0);
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  const term = e.target.value.toLowerCase();
+  displayProducts(products.filter(p=>p.name.toLowerCase().includes(term)));
+});
+
+document.getElementById('sortSelect').addEventListener('change', e => {
+  let arr = [...products];
+  if(e.target.value==='low') arr.sort((a,b)=>a.price-b.price);
+  else if(e.target.value==='high') arr.sort((a,b)=>b.price-a.price);
+  displayProducts(arr);
+});
+
+displayProducts(products);
+updateCartCount();
+</script>
+</body>
+</html>

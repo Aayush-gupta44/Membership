@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity Courses|My Cyber Shield</title>
+    <link rel="icon" type="image/PNG" href="../Icon of page.png"> 
+    <link rel="stylesheet" href="cyber courses.css">
+</head>
+<body>
+
+<!-- 
+    This page displays a grid of interactive cybersecurity courses for users. 
+    Each course includes a thumbnail, description, level, instructor bio, and an "Enroll" button 
+    that redirects to a subscription page. Users can also search for courses or take a quiz. 
+-->
+
+    <div class="top-bar">
+        <a href="../hacking courses/hacking courses.html"><button class="quiz" onclick="history.back()">
+            BUY PC GAMES</button></a>
+        <input type="text" class="search-bar" onkeyup="searchCourses()" placeholder="Search courses...">
+        <a href="../index.html"><button class="go-back" onclick="history.back()">Go Back</button></a>
+    </div>
+
+    <div class="container">
+        <h1 class="heading">TOP-UP CENTER</h1>
+       <div class="course-grid">
+    <!-- Game 1 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/freefire.jpg" alt="Free Fire">
+          
+        </div>
+        <h2>Free Fire</h2>
+        <p class="description">Top up diamonds to unlock exclusive skins, characters, and emotes.</p>
+        <p class="details">Game Studio: Garena | Genre: Battle Royale | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>Free Fire is a fast-paced survival shooter game where you compete against 49 players. Use top-ups to enhance your gear and style with premium items.</p>
+            <p>Top-Up Info: Purchase diamonds to get access to elite passes, gun skins, and more limited-time items.</p>
+        </div>
+        <a href="/home/top-up/freefire.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 2 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/pubgmobile.jpg" alt="PUBG Mobile">
+            
+        </div>
+        <h2>PUBG Mobile</h2>
+        <p class="description">Get UC for royale passes, outfits, weapon skins, and crates.</p>
+        <p class="details">Game Studio: Tencent | Genre: Battle Royale | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>PUBG Mobile delivers realistic gameplay and thrilling combat. UC top-ups let you unlock premium outfits, weapon upgrades, and event passes.</p>
+            <p>Top-Up Info: Use UC for crate openings, vehicle skins, and time-limited missions.</p>
+        </div>
+        <a href="/home/top-up/pubg.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 3 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/genshinimpact.jpg" alt="Genshin Impact">
+           
+        </div>
+        <h2>Genshin Impact</h2>
+        <p class="description">Recharge Genesis Crystals for wishes, characters, and weapons.</p>
+        <p class="details">Game Studio: HoYoverse | Genre: Action RPG | Platform: Cross-Platform</p>
+        <div class="extra-details">
+            <p>Explore Teyvat with stunning visuals and elemental combat. Recharge to summon powerful heroes and rare 5-star weapons.</p>
+            <p>Top-Up Info: Use Genesis Crystals to exchange for Primogems and access gacha events.</p>
+        </div>
+        <a href="/home/top-up/genshin.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 4 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/mlbb.jpg" alt="MLBB">
+           
+        </div>
+        <h2>Mobile Legends (MLBB)</h2>
+        <p class="description">Buy diamonds to unlock skins, heroes, and special effects.</p>
+        <p class="details">Game Studio: Moonton | Genre: MOBA | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>MLBB is a fast-paced 5v5 MOBA with global tournaments. Diamonds unlock skins, starlight memberships, and events.</p>
+            <p>Top-Up Info: Get Starlight Pass, lucky draws, and customized avatar borders with diamonds.</p>
+        </div>
+        <a href="/home/top-up/" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 5 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/coc.jpg" alt="Clash of Clans">
+            
+        </div>
+        <h2>Clash of Clans</h2>
+        <p class="description">Buy gems to speed up builds, unlock hero skins, and more.</p>
+        <p class="details">Game Studio: Supercell | Genre: Strategy | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>Build your village, train troops, and attack other players. Use gems for instant upgrades and premium content.</p>
+            <p>Top-Up Info: Purchase gold pass, hero skins, and builder boosts with gems.</p>
+        </div>
+        <a href="/home/top-up/clashofclans.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 6 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/cod.jpg" alt="Call of Duty Mobile">
+            
+        </div>
+        <h2>Call of Duty Mobile</h2>
+        <p class="description">Top up CP to unlock battle passes, operators, and skins.</p>
+        <p class="details">Game Studio: Activision | Genre: FPS | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>COD Mobile features action-packed multiplayer and battle royale. CP lets you buy premium passes, blueprints, and lucky draws.</p>
+            <p>Top-Up Info: Access seasonal battle passes, lucky spins, and character outfits with CP.</p>
+        </div>
+        <a href="/home/top-up/codm.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 7 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/clashroyal.jpg" alt="Clash Royale">
+          
+        </div>
+        <h2>Clash Royale</h2>
+        <p class="description">Buy gems for chests, emotes, and gold pass benefits.</p>
+        <p class="details">Game Studio: Supercell | Genre: Real-Time Strategy | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>Clash Royale blends card-based combat with tower defense. Gems offer exclusive content and quicker progress.</p>
+            <p>Top-Up Info: Unlock Season Pass, skins, tower appearances, and more with gems.</p>
+        </div>
+        <a href="/home/top-up/clashroyals.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 8 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/roblox.jpg" alt="Roblox">
+           
+        </div>
+        <h2>Roblox</h2>
+        <p class="description">Purchase vouchers to unlock heroes, skins, and battle rewards.</p>
+        <p class="details">Game Studio: Tencent | Genre: MOBA | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>Arena of Valor delivers fast-paced 5v5 MOBA action. Vouchers unlock stylish hero skins, events, and experience boosts.</p>
+            <p>Top-Up Info: Gain elite battle passes, epic skin crates, and energy boosts.</p>
+        </div>
+        <a href="/home/top-up/roblox.html" class="enroll">Top-Up</a>
+    </div>
+
+    <!-- Game 9 -->
+    <div class="course" onclick="toggleCourseDetails(this)">
+        <div class="thumbnail">
+            <img src="/Images/kalorant.jpg" alt="Kalorant">
+           
+        </div>
+        <h2>Kalorant</h2>
+        <p class="description">Buy tokens for heroes, legendary skins, and premium rewards.</p>
+        <p class="details">Game Studio: TiMi Studio | Genre: MOBA | Platform: Mobile</p>
+        <div class="extra-details">
+            <p>Honor of Kings is a top MOBA with diverse heroes and stunning graphics. Use tokens for high-tier skins and unlockables.</p>
+            <p>Top-Up Info: Access royal passes, limited events, and monthly card benefits.</p>
+        </div>
+        <a href="../Subscription/subscription.html" class="enroll">Top-Up</a>
+    </div>
+</div>
+
+    <div id="common-footer"></div>
+
+<script src="cyber course.js"></script>
+
+</body>
+</html>

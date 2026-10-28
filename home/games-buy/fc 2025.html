@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FC 2025 - Game Details</title>
+  <link rel="stylesheet" href="fc 2025.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">FC 2025</h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/fc1.jpg" alt="FC 2025 Screenshot 1" class="slide">
+        <img src="/Images/fc2.jpg" alt="FC 2025 Screenshot 2" class="slide">
+        <img src="/Images/fc3.jpg" alt="FC 2025 Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>EA SPORTS™ FC 2025 delivers the most immersive football experience yet. Featuring HyperMotionV technology, next-gen graphics, real club partnerships, and updated career mode, it’s the future of football gaming.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel Core i5-6600k / AMD Ryzen 5 1600</li>
+        <li><strong>RAM:</strong> 8 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA GeForce GTX 1050 Ti / AMD Radeon RX 570</li>
+        <li><strong>Storage:</strong> 100 GB available space</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 5,299</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

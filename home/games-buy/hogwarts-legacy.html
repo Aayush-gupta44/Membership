@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hogwarts Legacy - Game Details</title>
+  <link rel="stylesheet" href="hogwarts-legacy.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">Hogwarts Legacy</h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/hog1.jpg" alt="Hogwarts Legacy Screenshot 1" class="slide">
+        <img src="/Images/hog2.jpg" alt="Hogwarts Legacy Screenshot 2" class="slide">
+        <img src="/Images/hog3.jpg" alt="Hogwarts Legacy Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>Hogwarts Legacy is an immersive, open-world action RPG set in the magical world of the 1800s. As a student with a unique ability to harness ancient magic, explore Hogwarts, brew potions, tame beasts, and shape your destiny.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel Core i7-8700 / AMD Ryzen 5 3600</li>
+        <li><strong>RAM:</strong> 16 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA RTX 2060 / AMD RX 6700 XT</li>
+        <li><strong>Storage:</strong> 85 GB SSD required</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 5,499</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

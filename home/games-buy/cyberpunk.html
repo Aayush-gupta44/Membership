@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cyberpunk 2077 - Game Details</title>
+  <link rel="stylesheet" href="cyberpunk.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="game-title">Cyberpunk 2077</h1>
+
+    <!-- Image Slider -->
+    <div class="slider">
+      <div class="slides">
+        <img src="/Images/cyber1.jpg" alt="Cyberpunk Screenshot 1" class="slide">
+        <img src="/Images/cyber2.jpg" alt="Cyberpunk Screenshot 2" class="slide">
+        <img src="/Images/cyber3.jpg" alt="Cyberpunk Screenshot 3" class="slide">
+      </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="details">
+      <h2>Description</h2>
+      <p>Cyberpunk 2077 is an open-world, action-adventure RPG set in the dystopian Night City. Become V, a cyber-enhanced mercenary with customizable upgrades, high-tech weapons, and a gripping storyline featuring Keanu Reeves as Johnny Silverhand.</p>
+
+      <h2>System Requirements</h2>
+      <ul>
+        <li><strong>OS:</strong> Windows 10 (64-bit)</li>
+        <li><strong>Processor:</strong> Intel Core i7-6700 / AMD Ryzen 5 1600</li>
+        <li><strong>RAM:</strong> 12 GB</li>
+        <li><strong>Graphics:</strong> NVIDIA GTX 1060 / AMD Radeon RX 580</li>
+        <li><strong>Storage:</strong> 70 GB SSD required</li>
+      </ul>
+
+      <h2>Price: <span class="price">NPR 4,999</span></h2>
+      <a href="payment.html" class="buy-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>

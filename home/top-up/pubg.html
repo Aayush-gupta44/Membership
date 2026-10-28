@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUBG UC Top-Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e1a;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .top-header img.logo {
+      width: 50px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 200px;
+      background: url('pubgmobile.jpg') no-repeat center center/cover;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .user-info {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .user-info input {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      background: #1e1e2d;
+      color: #fff;
+    }
+
+    .uc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .uc-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .uc-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('pubgmobile.jpg') no-repeat center center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .uc-card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .uc-card:hover,
+    .uc-card.active {
+      border-color: #ffc107;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .uc-card img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .uc-card span {
+      display: block;
+      font-size: 14px;
+    }
+
+    .buy-area {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .buy-area label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .buy-area button {
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #ffc107;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .buy-area button:disabled {
+      background: #777;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+      .uc-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-header">
+      <div class="header-text">PUBG UC Top-Up</div>
+      <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <div class="banner"></div>
+
+    <div class="user-info">
+      <input type="text" id="pubgId" placeholder="Enter your PUBG ID">
+      <input type="email" id="email" placeholder="Enter your Gmail">
+    </div>
+
+    <div class="uc-grid" id="ucGrid"></div>
+
+    <div class="buy-area">
+      <label>
+        <input type="checkbox" id="terms"> I agree to the Terms & Conditions
+      </label>
+      <button id="buyBtn" disabled>Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    const ucOptions = [
+      { amount: '60', bonus: '0' },
+      { amount: '180', bonus: '20' },
+      { amount: '325', bonus: '40' },
+      { amount: '660', bonus: '90' },
+      { amount: '1800', bonus: '300' },
+      { amount: '3850', bonus: '850' },
+    ];
+
+    const ucGrid = document.getElementById('ucGrid');
+    const buyBtn = document.getElementById('buyBtn');
+    const pubgIdInput = document.getElementById('pubgId');
+    const emailInput = document.getElementById('email');
+    const termsCheck = document.getElementById('terms');
+
+    let selectedUC = null;
+
+    ucOptions.forEach((uc, index) => {
+      const card = document.createElement('div');
+      card.className = 'uc-card';
+      card.innerHTML = `
+        <img src="uc-logo.png" alt="UC">
+        <h3>${parseInt(uc.amount) + parseInt(uc.bonus)} UC</h3>
+        <span>(${uc.amount} + ${uc.bonus} Bonus)</span>
+      `;
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.uc-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        selectedUC = uc;
+        validateForm();
+      });
+      ucGrid.appendChild(card);
+    });
+
+    [pubgIdInput, emailInput, termsCheck].forEach(el => {
+      el.addEventListener('input', validateForm);
+      el.addEventListener('change', validateForm);
+    });
+
+    function validateForm() {
+      if (
+        pubgIdInput.value.trim() !== '' &&
+        emailInput.value.trim() !== '' &&
+        termsCheck.checked &&
+        selectedUC
+      ) {
+        buyBtn.disabled = false;
+      } else {
+        buyBtn.disabled = true;
+      }
+    }
+
+    buyBtn.addEventListener('click', () => {
+      alert(`PUBG ID: ${pubgIdInput.value}\nEmail: ${emailInput.value}\nSelected: ${parseInt(selectedUC.amount) + parseInt(selectedUC.bonus)} UC`);
+      // Future: Save to database + integrate payment
+    });
+  </script>
+</body>
+</html>
