@@ -215,3 +215,177 @@ body, html {
 .show {
     display: block !important;
 }
+
+
+/* ===== GAMEXON HOME HERO SECTION ===== */
+
+.home-hero {
+    min-height: 620px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background:
+        radial-gradient(circle at 80% 50%, #25205a 0%, transparent 40%),
+        linear-gradient(120deg, #080914, #101426, #080914);
+    color: white;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: #9b8cff;
+    border: 1px solid #6355bd;
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero-content h1 span {
+    color: #9275ff;
+}
+
+.hero-content h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+    color: #e0ddff;
+}
+
+.hero-content p {
+    color: #b7b8ca;
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 550px;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-btn {
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background: #7856ff;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #927aff;
+    transform: translateY(-4px);
+}
+
+.secondary-btn {
+    border: 1px solid #7856ff;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #7856ff;
+    transform: translateY(-4px);
+}
+
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 45px;
+}
+
+.hero-features div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c6c6d8;
+    font-size: 13px;
+}
+
+.hero-features strong {
+    font-size: 20px;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 480px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid #6252ad;
+    box-shadow: 0 0 50px rgba(120, 86, 255, 0.2);
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+@media (max-width: 850px) {
+    .home-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 65px 6%;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .hero-features {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 550px;
+    }
+
+    .hero-image img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 19px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-btn {
+        text-align: center;
+    }
+}
